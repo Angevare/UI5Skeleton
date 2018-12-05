@@ -6,6 +6,7 @@
 				<content>
 					<List items="{/ZZ_C_PurchaseContracts}" >
 						<StandardListItem	type="Active"
+	    									press="handleListItemPress"
         									title="{purchaseOrder}" />
 					</List>	
 				</content>
