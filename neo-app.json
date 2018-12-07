@@ -18,6 +18,15 @@
         "entryPath": "/test-resources"
       },
       "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "HellemaDHE210",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "Hellema Development Client 210"
     }
   ],
   "sendWelcomeFileRedirect": true

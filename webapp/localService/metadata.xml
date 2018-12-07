@@ -1,0 +1,29 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="http://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZZ_C_PURCHASECONTRACTS_CDS" xml:lang="nl" sap:schema-version="1">
+			<EntityType Name="ZZ_C_PurchaseContractsType" sap:content-version="1">
+				<Key><PropertyRef Name="purchaseOrder"/></Key><Property Name="purchaseOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Inkoopdocument"
+					sap:quickinfo="Documentnummer van inkoopdocument"/><Property Name="currency" Type="Edm.String" MaxLength="5" sap:label="Valuta" sap:quickinfo="Valutacode" sap:semantics="currency-code"/><Property Name="supplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Leverancier"
+					sap:quickinfo="Rekeningnummer van leverancier"/><Property Name="purchaseOrganisation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Inkooporganisatie"/><Property Name="documentCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Inkoopdocumenttype"/><Property Name="orderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Inkoopdoc.soort"
+					sap:quickinfo="Inkoopdocumentsoort"/><Property Name="purchaseDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Documentdatum"
+					sap:quickinfo="Datum van inkoopdocument"/><Property Name="validityStartDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Begin looptijd"/><Property Name="validityEndDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Einde looptijd"/><Property Name="yourReference" Type="Edm.String" MaxLength="12" sap:label="Uw teken"/><NavigationProperty Name="to_item" Relationship="ZZ_C_PURCHASECONTRACTS_CDS.assoc_9A85463CDA15E49105CB9CF434AFD1E4"
+					FromRole="FromRole_assoc_9A85463CDA15E49105CB9CF434AFD1E4" ToRole="ToRole_assoc_9A85463CDA15E49105CB9CF434AFD1E4"/></EntityType>
+			<EntityType Name="Z_B_PurchaseOrderItemType" sap:content-version="1">
+				<Key><PropertyRef Name="purchaseOrder"/><PropertyRef Name="itemNumber"/></Key><Property Name="purchaseOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Inkoopdocument"
+					sap:quickinfo="Documentnummer van inkoopdocument"/><Property Name="uoM" Type="Edm.String" MaxLength="3" sap:label="Bestelhoevh.eenheid" sap:quickinfo="Bestelhoeveelheidseenheid"
+					sap:semantics="unit-of-measure"/><Property Name="price" Type="Edm.Double"/><Property Name="itemNumber" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="NonNegative" sap:label="Positie"
+					sap:quickinfo="Positienummer van inkoopdocument"/><Property Name="material" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Artikel" sap:quickinfo="Artikelnummer"/><Property Name="materialGroup" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Goederengroep"/><Property Name="plant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Vestiging"/><Property Name="storageLocation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Magazijn"/><Property Name="quantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="uoM" sap:label="Bestelhoeveelheid"/><Property Name="targetQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="uoM" sap:label="Doelhoeveelheid"/><Property Name="value" Type="Edm.Decimal" Precision="14" Scale="3" sap:label="Nettobestelwaarde"
+					sap:quickinfo="Nettobestelwaarde in bestelvaluta"/></EntityType>
+			<Association Name="assoc_9A85463CDA15E49105CB9CF434AFD1E4" sap:content-version="1"><End Type="ZZ_C_PURCHASECONTRACTS_CDS.ZZ_C_PurchaseContractsType" Multiplicity="1" Role="FromRole_assoc_9A85463CDA15E49105CB9CF434AFD1E4"/><End Type="ZZ_C_PURCHASECONTRACTS_CDS.Z_B_PurchaseOrderItemType" Multiplicity="*" Role="ToRole_assoc_9A85463CDA15E49105CB9CF434AFD1E4"/></Association>
+			<EntityContainer Name="ZZ_C_PURCHASECONTRACTS_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ZZ_C_PurchaseContracts" EntityType="ZZ_C_PURCHASECONTRACTS_CDS.ZZ_C_PurchaseContractsType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="Z_B_PurchaseOrderItem" EntityType="ZZ_C_PURCHASECONTRACTS_CDS.Z_B_PurchaseOrderItemType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+				<AssociationSet Name="assoc_9A85463CDA15E49105CB9CF434AFD1E4"
+					Association="ZZ_C_PURCHASECONTRACTS_CDS.assoc_9A85463CDA15E49105CB9CF434AFD1E4" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ZZ_C_PurchaseContracts" Role="FromRole_assoc_9A85463CDA15E49105CB9CF434AFD1E4"/><End EntitySet="Z_B_PurchaseOrderItem" Role="ToRole_assoc_9A85463CDA15E49105CB9CF434AFD1E4"/></AssociationSet>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZZ_C_PURCHASECONTRACTS_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZZ_C_PURCHASECONTRACTS_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
