@@ -3,13 +3,27 @@
 	<App id="idAppControl">
 		<pages>
 			<Page title="{i18n>title}">
-				<content>
-					<List items="{/ZZ_C_PurchaseContracts}" >
-						<StandardListItem	type="Navigation"
+					<subHeader>
+					 	<Bar>
+					 		<contentLeft>
+					 			<SearchField search="handleSearch" />
+					 		</contentLeft>
+					 	</Bar>
+					 </subHeader>					
+					<List id="List" items="{/ZZ_C_PurchaseContracts}" >
+						<ObjectListItem 	type="Navigation"
 	    									press="handleListItemPress"
-        									title="{purchaseOrder}" />
+        									title="{purchaseOrder}"
+        									number="{amount}"
+                							numberUnit="{currency}">
+							<attributes>
+								<ObjectAttribute text="{validityStartDate}" />
+							</attributes>
+							<attributes>
+								<ObjectAttribute text="{validityEndDate}" />
+							</attributes>
+						</ObjectListItem>
 					</List>	
-				</content>
 			</Page>
 		</pages>
 	</App>

@@ -10,6 +10,19 @@ sap.ui.define([
 			oRouter.navTo("detail", {
 				purchaseOrder: selectedPurchaseOrder
 			});
+		},
+		
+		handleSearch: function (evt) {
+			var filters = [];
+			var query = evt.getParameter("query");
+			if (query && query.length > 0) {
+				var filter = new sap.ui.model.Filter("purchaseOrder", sap.ui.model.FilterOperator.Contains, query);
+				filters.push(filter);
+			}
+	
+			var list = this.getView().byId("List");
+			var binding = list.getBinding("items");
+			binding.filter(filters);			
 		}
 	});
 });

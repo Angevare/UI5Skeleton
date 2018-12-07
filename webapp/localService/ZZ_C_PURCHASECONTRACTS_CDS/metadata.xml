@@ -1,9 +1,11 @@
-<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
-	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
-	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-		Uri="http://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:Reference
+		Uri="http://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"
+		xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
 	<edmx:DataServices m:DataServiceVersion="2.0">
-		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZZ_C_PURCHASECONTRACTS_CDS" xml:lang="nl" sap:schema-version="1">
+		<Schema Namespace="ZZ_C_PURCHASECONTRACTS_CDS" xml:lang="nl" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
 			<EntityType Name="ZZ_C_PurchaseContractsType" sap:content-version="1">
 				<Key><PropertyRef Name="purchaseOrder"/></Key><Property Name="purchaseOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Inkoopdocument"
 					sap:quickinfo="Documentnummer van inkoopdocument"/><Property Name="currency" Type="Edm.String" MaxLength="5" sap:label="Valuta" sap:quickinfo="Valutacode" sap:semantics="currency-code"/><Property Name="supplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Leverancier"
@@ -24,6 +26,10 @@
 				<AssociationSet Name="assoc_9A85463CDA15E49105CB9CF434AFD1E4"
 					Association="ZZ_C_PURCHASECONTRACTS_CDS.assoc_9A85463CDA15E49105CB9CF434AFD1E4" sap:creatable="false" sap:updatable="false"
 					sap:deletable="false" sap:content-version="1"><End EntitySet="ZZ_C_PurchaseContracts" Role="FromRole_assoc_9A85463CDA15E49105CB9CF434AFD1E4"/><End EntitySet="Z_B_PurchaseOrderItem" Role="ToRole_assoc_9A85463CDA15E49105CB9CF434AFD1E4"/></AssociationSet>
-			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZZ_C_PURCHASECONTRACTS_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZZ_C_PURCHASECONTRACTS_CDS/$metadata"/></Schema>
+			</EntityContainer><atom:link rel="self"
+				href="https://webidecp-s0017146921trial.dispatcher.hanatrial.ondemand.com/destinations/HellemaDHE210/sap/opu/odata/sap/ZZ_C_PURCHASECONTRACTS_CDS/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version"
+				href="https://webidecp-s0017146921trial.dispatcher.hanatrial.ondemand.com/destinations/HellemaDHE210/sap/opu/odata/sap/ZZ_C_PURCHASECONTRACTS_CDS/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
 	</edmx:DataServices>
 </edmx:Edmx>

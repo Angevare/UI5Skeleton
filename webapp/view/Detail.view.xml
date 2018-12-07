@@ -6,12 +6,13 @@
 			      showNavButton="true"
 			      navButtonPress="handleNavButtonPress" >
 				<content>
-					<VBox>
-						<Text text="{purchaseOrder}" />
-						<Text text="{purchaseOrganisation}" />
-						<Text text="{purchaseDate}" />
-						<Text text="{validityStartDate}" />
-					</VBox>					
+					<ObjectHeader title="{purchaseOrder}">
+						<attributes>
+							<ObjectAttribute text="Order {purchaseOrder}" />
+							<ObjectAttribute text="Organisation {purchaseOrganisation}" />
+							<ObjectAttribute text="Date {purchaseDate}" />
+						</attributes>						
+					</ObjectHeader>				
 				</content>
 			</Page>
 		</pages>
